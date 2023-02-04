@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Store } from '@ngrx/store';
-import { AppState } from '../../app.reducer';
-import { IngresoEgreso } from '../../models/ingreso-egreso.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IngresoEgresoService } from '../../services/ingreso-egreso.service';
+
+import { Store } from '@ngrx/store';
+import { AppStateWithIngresos } from '../ingreso-egreso.reducer';
+
 import Swal from 'sweetalert2';
+
+import { IngresoEgreso } from '../../models/ingreso-egreso.model';
+import { IngresoEgresoService } from '../../services/ingreso-egreso.service';
 
 @Component({
   selector: 'app-detalle',
@@ -17,7 +19,7 @@ export class DetalleComponent implements OnInit {
   ingresosEgresosSubs?: Observable<IngresoEgreso[]>;
 
   constructor(
-    private store: Store<AppState>,
+    private store: Store<AppStateWithIngresos>,
     private ingresoEgresoService: IngresoEgresoService
   ) {}
 

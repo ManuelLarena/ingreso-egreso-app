@@ -14,7 +14,7 @@ import { IngresoEgresoService } from '../services/ingreso-egreso.service';
   styles: [],
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-  userSubs!: Subscription;
+  userSubs?: Subscription;
 
   constructor(
     private store: Store<AppState>,
@@ -38,6 +38,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.userSubs!.unsubscribe();
+    this.userSubs?.unsubscribe();
   }
 }

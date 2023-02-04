@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../app.reducer';
+import { AppStateWithIngresos } from '../ingreso-egreso.reducer';
 
 import { ChartType } from 'chart.js';
 import { MultiDataSet, Label } from 'ng2-charts';
@@ -23,7 +23,7 @@ export class EstadisticaComponent implements OnInit {
   public doughnutChartData: MultiDataSet = [[]];
   public doughnutChartType: ChartType = 'doughnut';
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppStateWithIngresos>) {}
 
   ngOnInit(): void {
     this.store
